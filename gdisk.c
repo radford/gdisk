@@ -1181,10 +1181,10 @@ static struct partition_table table_from_image(struct write_image image, struct 
 
     t.mbr = mbr_from_sector(mbr->buffer);
 
-    memcpy(t.header, gpt_header->buffer, sizeof(t.header));
+    memcpy(t.header, gpt_header->buffer, sizeof(*t.header));
     gpt_header_to_host(t.header);
 
-    memcpy(t.alt_header, alt_gpt_header->buffer, sizeof(t.alt_header));
+    memcpy(t.alt_header, alt_gpt_header->buffer, sizeof(*t.alt_header));
     gpt_header_to_host(t.alt_header);
 
     struct write_vec *gpt_partitions     = find_vec("gpt_partitions",     partition_sectors(t));
