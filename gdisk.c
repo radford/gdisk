@@ -1280,9 +1280,9 @@ static int import_image(struct write_image *image_out, struct device *dev, char 
             err = EINVAL;
             goto done;
         }
-        if (!device[0] && sscanf(line, "# device: %1000s", device) == 1 && strcmp(device,dev->name) != 0)
+        if (!device[0] && sscanf(line, "# device: %999s", device) == 1 && strcmp(device,dev->name) != 0)
             fprintf(stderr, "Warning: image file was created from %s but we're operating on %s.\n", device, dev->name);
-        if (sscanf(line, "# %20s:", section) == 1)
+        if (sscanf(line, "# %19s:", section) == 1)
             if (section[0] && section[strlen(section)-1] == ':')
                 section[strlen(section)-1] = '\0';
         unsigned long long skip, seek;
