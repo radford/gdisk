@@ -4,6 +4,9 @@
 
 #include <stdint.h>
 
+#include "guid.h"
+#include "lengthof.h"
+
 // [1] Extensible Firmware Interface Specification, Version 1.10
 // [2] Extensible Firmware Interface Specification, Version 1.10 Specification Update
 // Both can be downloaded from here: http://www.intel.com/technology/efi/main_specification.htm
