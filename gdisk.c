@@ -122,7 +122,7 @@ static char **parse_command(char *line)
 
     char *rest = line;
     char *word;
-    while (word = next_word(&rest)) {
+    while ((word = next_word(&rest))) {
         if (!*word) continue; // compact multiple consecutive separators
         v = drealloc(v, sizeof(char *) * (c+2));
         v[c] = word;
