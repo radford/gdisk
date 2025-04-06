@@ -2,6 +2,9 @@
 #ifndef __GDISK_H__
 #define __GDISK_H__
 
+#include "lengthof.h"
+#include "mbr.h"
+
 struct partition_table {
     struct device *dev;
     struct gpt_header *header;
