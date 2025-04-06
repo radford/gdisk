@@ -1511,9 +1511,11 @@ static int command_print(char **arg)
 
     struct {
         int width;
-        char *data[g_table.header->partition_entries];
-    } column[lengthof(set)];
-    memset(column, 0, sizeof(column));
+        char **data;
+    } column[lengthof(set)] = {};
+    for (int c=0; c<lengthof(column); c++) {
+        column[c].data = dcalloc(g_table.header->partition_entries, sizeof(*column[c].data));
+    }
 
     for (int p=0; p<g_table.header->partition_entries; p++) {
         if (guid_eq(gpt_partition_type_empty, g_table.partition[p].partition_type))
