@@ -17,7 +17,7 @@ void *get_sectors(struct device *dev, unsigned long long sector_num, unsigned lo
 {
     void *data = alloc_sectors(dev, sectors);
     if (!device_read(dev, data, sector_num, sectors))
-        err(errno, "Couldn't read sectors %ld through %ld", sector_num, sector_num+sectors);
+        err(errno, "Couldn't read sectors %llu through %llu", sector_num, sector_num+sectors);
     return data;
 }
 
